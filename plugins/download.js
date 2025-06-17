@@ -254,7 +254,7 @@ cmd({
 ┃ 📅 *Updated On:* ${app.updated}
 ┃ 👨‍💻 *Developer:* ${app.developer.name}
 ╰━━━━━━━━━━━━━━━┈⊷
-🔗 *Powered By KhanX-AI*`;
+🔗 *Powered By DARKZONE-AI*`;
 
     await conn.sendMessage(from, { react: { text: "⬆️", key: m.key } });
 
@@ -305,7 +305,7 @@ cmd({
         document: { url: downloadUrl },
         mimetype: response.data.result.mimetype,
         fileName: response.data.result.fileName,
-        caption: "*© Powered By JawadTechX*"
+        caption: "*𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 💔*"
       }, { quoted: m });
 
       await conn.sendMessage(from, { react: { text: "✅", key: m.key } });
