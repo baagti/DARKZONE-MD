@@ -129,7 +129,7 @@ let subtitles = [
 
 let outro = [
   "Thanks for choosing DARKZONE-MD!",
-  "Powered by ERFAN AHMAD 💻",
+  "Powered by *𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟💻*",
   "Built for your convenience ⚡",
   "Leveling up your automation 🛠"
 ];
