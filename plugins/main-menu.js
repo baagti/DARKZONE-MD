@@ -17,126 +17,350 @@ cmd({
 }, 
 async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sender, senderNumber, botNumber2, botNumber, pushname, isMe, isOwner, groupMetadata, groupName, participants, groupAdmins, isBotAdmins, isAdmins, reply }) => {
     try {
-    let menuStyles = [
+        let dec = `╭━━〔 🚀 *${config.BOT_NAME}* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 👑 Owner : *${config.OWNER_NAME}*
+┃◈┃• ⚙️ Prefix : *[${config.PREFIX}]*
+┃◈┃• 🌐 Platform : *Heroku*
+┃◈┃• 📦 Version : *4.0.0*
+┃◈┃• ⏱️ Runtime : *${runtime(process.uptime())}*
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-`╭─〔 👑 *${config.BOT_NAME}* 〕─╮
-┃ Owner : *${config.OWNER_NAME}*
-┃ Prefix : *[${config.PREFIX}]*
-┃ Platform : *Heroku*
-┃ Version : *4.0.0*
-┃ Runtime : *${runtime(process.uptime())}*
-╰────────────────────╯
+╭━━〔 📥 *DOWNLOAD MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🟦 facebook
+┃◈┃• 📁 mediafire
+┃◈┃• 🎵 tiktok
+┃◈┃• 🐦 twitter
+┃◈┃• 📷 insta
+┃◈┃• 📦 apk
+┃◈┃• 🖼️ img
+┃◈┃• ▶️ tt2
+┃◈┃• 📌 pins
+┃◈┃• 🔄 apk2
+┃◈┃• 🔵 fb2
+┃◈┃• 📍 pinterest
+┃◈┃• 🎶 spotify
+┃◈┃• 🎧 play
+┃◈┃• 🎧 play2
+┃◈┃• 🔉 audio
+┃◈┃• 🎬 video
+┃◈┃• 📹 video2
+┃◈┃• 🎵 ytmp3
+┃◈┃• 📹 ytmp4
+┃◈┃• 🎶 song
+┃◈┃• 🎬 darama
+┃◈┃• ☁️ gdrive
+┃◈┃• 🌐 ssweb
+┃◈┃• 🎵 tiks
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-📥 *DOWNLOAD*
-• facebook • mediafire • tiktok • twitter • insta
-• apk • img • tt2 • pins • fb2 • gdrive
-• spotify • play • video • ytmp3 • ytmp4
+╭━━〔 👥 *GROUP MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🔗 grouplink
+┃◈┃• 🚪 kickall
+┃◈┃• 🚷 kickall2
+┃◈┃• 🚫 kickall3
+┃◈┃• ➕ add
+┃◈┃• ➖ remove
+┃◈┃• 👢 kick
+┃◈┃• ⬆️ promote
+┃◈┃• ⬇️ demote
+┃◈┃• 🚮 dismiss
+┃◈┃• 🔄 revoke
+┃◈┃• 👋 setgoodbye
+┃◈┃• 🎉 setwelcome
+┃◈┃• 🗑️ delete
+┃◈┃• 🖼️ getpic
+┃◈┃• ℹ️ ginfo
+┃◈┃• ⏳ disappear on
+┃◈┃• ⏳ disappear off
+┃◈┃• ⏳ disappear 7D,24H
+┃◈┃• 📝 allreq
+┃◈┃• ✏️ updategname
+┃◈┃• 📝 updategdesc
+┃◈┃• 📩 joinrequests
+┃◈┃• 📨 senddm
+┃◈┃• 🏃 nikal
+┃◈┃• 🔇 mute
+┃◈┃• 🔊 unmute
+┃◈┃• 🔒 lockgc
+┃◈┃• 🔓 unlockgc
+┃◈┃• 📩 invite
+┃◈┃• #️⃣ tag
+┃◈┃• 🏷️ hidetag
+┃◈┃• @️⃣ tagall
+┃◈┃• 👔 tagadmins
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-👥 *GROUP*
-• grouplink • add • remove • promote • demote
-• tagall • hidetag • kickall • setwelcome • setgoodbye
+╭━━〔 🎭 *REACTIONS MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 👊 bully @tag
+┃◈┃• 🤗 cuddle @tag
+┃◈┃• 😢 cry @tag
+┃◈┃• 🤗 hug @tag
+┃◈┃• 🐺 awoo @tag
+┃◈┃• 💋 kiss @tag
+┃◈┃• 👅 lick @tag
+┃◈┃• 🖐️ pat @tag
+┃◈┃• 😏 smug @tag
+┃◈┃• 🔨 bonk @tag
+┃◈┃• 🚀 yeet @tag
+┃◈┃• 😊 blush @tag
+┃◈┃• 😄 smile @tag
+┃◈┃• 👋 wave @tag
+┃◈┃• ✋ highfive @tag
+┃◈┃• 🤝 handhold @tag
+┃◈┃• 🍜 nom @tag
+┃◈┃• 🦷 bite @tag
+┃◈┃• 🤗 glomp @tag
+┃◈┃• 👋 slap @tag
+┃◈┃• 💀 kill @tag
+┃◈┃• 😊 happy @tag
+┃◈┃• 😉 wink @tag
+┃◈┃• 👉 poke @tag
+┃◈┃• 💃 dance @tag
+┃◈┃• 😬 cringe @tag
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-⚙️ *MAIN*
-• ping • alive • runtime • owner • repo • restart
-• menu • menu2
+╭━━〔 🎨 *LOGO MAKER* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 💡 neonlight
+┃◈┃• 🎀 blackpink
+┃◈┃• 🐉 dragonball
+┃◈┃• 🎭 3dcomic
+┃◈┃• 🇺🇸 america
+┃◈┃• 🍥 naruto
+┃◈┃• 😢 sadgirl
+┃◈┃• ☁️ clouds
+┃◈┃• 🚀 futuristic
+┃◈┃• 📜 3dpaper
+┃◈┃• ✏️ eraser
+┃◈┃• 🌇 sunset
+┃◈┃• 🍃 leaf
+┃◈┃• 🌌 galaxy
+┃◈┃• 💀 sans
+┃◈┃• 💥 boom
+┃◈┃• 💻 hacker
+┃◈┃• 😈 devilwings
+┃◈┃• 🇳🇬 nigeria
+┃◈┃• 💡 bulb
+┃◈┃• 👼 angelwings
+┃◈┃• ♈ zodiac
+┃◈┃• 💎 luxury
+┃◈┃• 🎨 paint
+┃◈┃• ❄️ frozen
+┃◈┃• 🏰 castle
+┃◈┃• 🖋️ tatoo
+┃◈┃• 🔫 valorant
+┃◈┃• 🐻 bear
+┃◈┃• 🔠 typography
+┃◈┃• 🎂 birthday
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🎭 *REACTIONS*
-• hug @tag • kill @tag • blush @tag • kiss @tag • pat @tag
+╭━━〔 👑 *OWNER MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 👑 owner
+┃◈┃• 📜 menu
+┃◈┃• 📜 menu2
+┃◈┃• 📊 vv
+┃◈┃• 📋 listcmd
+┃◈┃• 📚 allmenu
+┃◈┃• 📦 repo
+┃◈┃• 🚫 block
+┃◈┃• ✅ unblock
+┃◈┃• 🖼️ fullpp
+┃◈┃• 🖼️ setpp
+┃◈┃• 🔄 restart
+┃◈┃• ⏹️ shutdown
+┃◈┃• 🔄 updatecmd
+┃◈┃• 💚 alive
+┃◈┃• 🏓 ping
+┃◈┃• 🆔 gjid
+┃◈┃• 🆔 jid
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🎨 *LOGO MAKER*
-• neonlight • blackpink • dragonball • sadgirl • hacker • galaxy
+╭━━〔 🎉 *FUN MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🤪 shapar
+┃◈┃• ⭐ rate
+┃◈┃• 🤬 insult
+┃◈┃• 💻 hack
+┃◈┃• 💘 ship
+┃◈┃• 🎭 character
+┃◈┃• 💌 pickup
+┃◈┃• 😆 joke
+┃◈┃• ❤️ hrt
+┃◈┃• 😊 hpy
+┃◈┃• 😔 syd
+┃◈┃• 😠 anger
+┃◈┃• 😳 shy
+┃◈┃• 💋 kiss
+┃◈┃• 🧐 mon
+┃◈┃• 😕 cunfuzed
+┃◈┃• 🖼️ setpp
+┃◈┃• ✋ hand
+┃◈┃• 🏃 nikal
+┃◈┃• 🤲 hold
+┃◈┃• 🤗 hug
+┃◈┃• 🏃 nikal
+┃◈┃• 🎵 hifi
+┃◈┃• 👉 poke
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🤖 *AI MENU*
-• ai • gpt3 • gpt4 • meta • imagine • dj • luma
+╭━━〔 🔄 *CONVERT MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🏷️ sticker
+┃◈┃• 🏷️ sticker2
+┃◈┃• 😀 emojimix
+┃◈┃• ✨ fancy
+┃◈┃• 🖼️ take
+┃◈┃• 🎵 tomp3
+┃◈┃• 🗣️ tts
+┃◈┃• 🌐 trt
+┃◈┃• 🔢 base64
+┃◈┃• 🔠 unbase64
+┃◈┃• 010 binary
+┃◈┃• 🔤 dbinary
+┃◈┃• 🔗 tinyurl
+┃◈┃• 🌐 urldecode
+┃◈┃• 🌐 urlencode
+┃◈┃• 🌐 url
+┃◈┃• 🔁 repeat
+┃◈┃• ❓ ask
+┃◈┃• 📖 readmore
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🎎 *ANIME*
-• waifu • neko • anime1 • anime2 • naruto • foxgirl
+╭━━〔 🤖 *AI MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🧠 ai
+┃◈┃• 🤖 gpt3
+┃◈┃• 🤖 gpt2
+┃◈┃• 🤖 gptmini
+┃◈┃• 🤖 gpt
+┃◈┃• 🔵 meta
+┃◈┃• 📦 blackbox
+┃◈┃• 🌈 luma
+┃◈┃• 🎧 dj
+┃◈┃• 👑 khan
+┃◈┃• 🤵 jawad
+┃◈┃• 🧠 gpt4
+┃◈┃• 🔍 bing
+┃◈┃• 🎨 imagine
+┃◈┃• 🖼️ imagine2
+┃◈┃• 🤖 copilot
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🎉 *FUN*
-• shapar • joke • kiss • hrt • hack • cunfuzed
+╭━━〔 ⚡ *MAIN MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🏓 ping
+┃◈┃• 🏓 ping2
+┃◈┃• 🚀 speed
+┃◈┃• 📡 live
+┃◈┃• 💚 alive
+┃◈┃• ⏱️ runtime
+┃◈┃• ⏳ uptime
+┃◈┃• 📦 repo
+┃◈┃• 👑 owner
+┃◈┃• 📜 menu
+┃◈┃• 📜 menu2
+┃◈┃• 🔄 restart
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-ℹ️ *OTHER*
-• time • date • calculate • wikipedia • define
+╭━━〔 🎎 *ANIME MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🤬 fack
+┃◈┃• ✅ truth
+┃◈┃• 😨 dare
+┃◈┃• 🐶 dog
+┃◈┃• 🐺 awoo
+┃◈┃• 👧 garl
+┃◈┃• 👰 waifu
+┃◈┃• 🐱 neko
+┃◈┃• 🧙 megnumin
+┃◈┃• 🐱 neko
+┃◈┃• 👗 maid
+┃◈┃• 👧 loli
+┃◈┃• 🎎 animegirl
+┃◈┃• 🎎 animegirl1
+┃◈┃• 🎎 animegirl2
+┃◈┃• 🎎 animegirl3
+┃◈┃• 🎎 animegirl4
+┃◈┃• 🎎 animegirl5
+┃◈┃• 🎬 anime1
+┃◈┃• 🎬 anime2
+┃◈┃• 🎬 anime3
+┃◈┃• 🎬 anime4
+┃◈┃• 🎬 anime5
+┃◈┃• 📰 animenews
+┃◈┃• 🦊 foxgirl
+┃◈┃• 🍥 naruto
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
 
-🔄 *CONVERT*
-• sticker • tomp3 • base64 • url • tts • emojimix
-`,
+╭━━〔 ℹ️ *OTHER MENU* 〕━━┈⊷
+┃◈╭─────────────────·๏
+┃◈┃• 🕒 timenow
+┃◈┃• 📅 date
+┃◈┃• 🔢 count
+┃◈┃• 🧮 calculate
+┃◈┃• 🔢 countx
+┃◈┃• 🎲 flip
+┃◈┃• 🪙 coinflip
+┃◈┃• 🎨 rcolor
+┃◈┃• 🎲 roll
+┃◈┃• ℹ️ fact
+┃◈┃• 💻 cpp
+┃◈┃• 🎲 rw
+┃◈┃• 💑 pair
+┃◈┃• 💑 pair2
+┃◈┃• 💑 pair3
+┃◈┃• ✨ fancy
+┃◈┃• 🎨 logo <text>
+┃◈┃• 📖 define
+┃◈┃• 📰 news
+┃◈┃• 🎬 movie
+┃◈┃• ☀️ weather
+┃◈┃• 📦 srepo
+┃◈┃• 🤬 insult
+┃◈┃• 💾 save
+┃◈┃• 🌐 wikipedia
+┃◈┃• 🔑 gpass
+┃◈┃• 👤 githubstalk
+┃◈┃• 🔍 yts
+┃◈┃• 📹 ytv
+┃◈╰─────────────────┈⊷
+╰━━━━━━━━━━━━━━━━━━━┈⊷
+> ${config.DESCRIPTION}`;
 
-`🔰 *${config.BOT_NAME} Menu* 🔰
-👑 Owner: ${config.OWNER_NAME}
-⚙️ Prefix: ${config.PREFIX}
-📦 Version: 4.0.0 | ⏱️ Runtime: ${runtime(process.uptime())}
-
-🌐 *DOWNLOAD* » facebook, insta, spotify, mediafire, gdrive
-👥 *GROUP* » add, remove, promote, tagall, kickall, setwelcome
-🎭 *REACTIONS* » hug, pat, kiss, kill, smile
-🎨 *LOGO MAKER* » neonlight, sadgirl, dragonball, galaxy
-🤖 *AI* » gpt, gpt4, meta, imagine, dj
-🎉 *FUN* » shapar, joke, pickup, hug, kiss
-🎎 *ANIME* » waifu, neko, naruto, anime1-5
-ℹ️ *INFO* » time, date, weather, define
-🔁 *CONVERT* » sticker, tomp3, base64, tts
-`,
-
-`╔══ ❖ *${config.BOT_NAME} MENU* ❖ ══╗
-║👑 OWNER: ${config.OWNER_NAME}
-║🔧 PREFIX: ${config.PREFIX}
-║🌐 PLATFORM: Heroku
-║⚡ VERSION: 4.0.0
-║⏳ UPTIME: ${runtime(process.uptime())}
-╚═══════════════════════╝
-
-📁 *DOWNLOAD* | fb, insta, spotify, tt, yt, gdrive
-👥 *GROUP* | add, remove, promote, tagall, welcome
-🎭 *REACTIONS* | hug, pat, bonk, blush, poke
-🎨 *LOGO* | hacker, galaxy, sadgirl, neonlight
-🤖 *AI* | gpt, imagine, blackbox, meta
-🎎 *ANIME* | waifu, neko, anime1-5
-🎉 *FUN* | joke, ship, mon, pickup, hug
-ℹ️ *UTILS* | time, define, weather, wiki
-🔄 *CONVERT* | sticker, tomp3, base64
-`,
-
-`🛠️ *${config.BOT_NAME} - Multi Utility Bot* 🛠️
-🧑‍💼 *Owner:* ${config.OWNER_NAME}
-⚙️ *Prefix:* ${config.PREFIX} | 🕒 *Runtime:* ${runtime(process.uptime())}
-
-📦 *Main:* menu, ping, alive, restart, owner, repo
-🎭 *Reactions:* hug, kill, bonk, kiss, pat, smile
-📥 *Download:* fb, tiktok, mediafire, spotify, ytmp3
-👥 *Group:* add, remove, tagall, promote, demote, welcome
-🤖 *AI:* gpt, gpt4, imagine, dj, meta
-🎨 *Logos:* hacker, neonlight, sadgirl, devilwings
-🎉 *Fun:* joke, kiss, shy, mon, hrt
-🎎 *Anime:* waifu, neko, foxgirl, naruto
-🧠 *Other:* date, time, calculate, define
-`,
-
-// You can add more menu templates here
-];
-
-// Pick one at random
-let randomMenu = menuStyles[Math.floor(Math.random() * menuStyles.length)];
-
-await conn.sendMessage(
-  from,
-  {
-    image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/7zfdcq.jpg' },
-    caption: randomMenu,
-    contextInfo: {
-      mentionedJid: [m.sender],
-      forwardingScore: 999,
-      isForwarded: true,
-      forwardedNewsletterMessageInfo: {
-        newsletterJid: '120363354023106228@newsletter',
-        newsletterName: config.BOT_NAME,
-        serverMessageId: 143
-      }
-    }
-  },
-  { quoted: mek }
-);
-
+        await conn.sendMessage(
+            from,
+            {
+                image: { url: config.MENU_IMAGE_URL || 'https://files.catbox.moe/r2ncqh' },
+                caption: dec,
+                contextInfo: {
+                    mentionedJid: [m.sender],
+                    forwardingScore: 999,
+                    isForwarded: true,
+                    forwardedNewsletterMessageInfo: {
+                        newsletterJid: '120363416743041101@newsletter',
+                        newsletterName: config.BOT_NAME,
+                        serverMessageId: 143
+                    }
+                }
+            },
+            { quoted: mek }
+        );
 // share local audio 
 
 const audioPath = path.join(__dirname, '../assets/menu.m4a');
