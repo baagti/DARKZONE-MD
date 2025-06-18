@@ -25,11 +25,11 @@ async (conn, mek, m, { from, quoted, body, isCmd, command, args, q, isGroup, sen
             await conn.sendMessage(from, {
                 document: pdfData,
                 mimetype: 'application/pdf',
-                fileName: 'JawadTech.pdf',
+                fileName: '𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟.pdf',
                 caption: `
 *📄 PDF created successully!*
 
-> © Created By JawadTechX 💜`
+> 𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 💜`
             }, { quoted: mek });
         });
 
