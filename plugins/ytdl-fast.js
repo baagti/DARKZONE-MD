@@ -35,7 +35,7 @@ cmd({
 👀 *Views:* ${yts.views}
 👤 *Author:* ${yts.author.name}
 🔗 *Link:* ${yts.url}
-> Powered By JawadTechX ❤️`;
+> 𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 ❤️`;
 
         // Send video directly with caption
         await conn.sendMessage(
@@ -89,8 +89,8 @@ cmd({
             body: "Join our WhatsApp Channel",
             mediaType: 1,
             thumbnailUrl: song.thumbnail.replace('default.jpg', 'hqdefault.jpg'),
-            sourceUrl: 'https://whatsapp.com/channel/0029VatOy2EAzNc2WcShQw1j',
-            mediaUrl: 'https://whatsapp.com/channel/0029VatOy2EAzNc2WcShQw1j',
+            sourceUrl: 'https://whatsapp.com/channel/0029Vb5dDVO59PwTnL86j13J',
+            mediaUrl: 'https://whatsapp.com/channel/0029Vb5dDVO59PwTnL86j13J',
             showAdAttribution: true,
             renderLargerThumbnail: true
         }
