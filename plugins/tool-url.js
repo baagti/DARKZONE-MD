@@ -65,7 +65,7 @@ cmd({
       `*${mediaType} Uploaded Successfully*\n\n` +
       `*Size:* ${formatBytes(mediaBuffer.length)}\n` +
       `*URL:* ${mediaUrl}\n\n` +
-      `> © Uploaded by JawadTechX 💜`
+      `>  𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 💜`
     );
 
   } catch (error) {
