@@ -16,7 +16,7 @@
     "STICKER_NAME": {
       "description": "type your sticker pack name.",
       "required": false,
-      "value": "ERFAN"
+      "value": "𝐸𝑅𝐹𝒜𝒩"
     }, 
       
     "PREFIX": {
@@ -137,7 +137,7 @@
      "DESCRIPTION": {
       "description": "add caption for menu and other",
       "required": false,
-      "value": "*©  creater ERFAN*"
+      "value": "*CRESTER 𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟*"
     },
 
       "DELETE_LINKS": {
