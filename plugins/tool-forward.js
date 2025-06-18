@@ -1,5 +1,3 @@
-// Jawad TechX - KHAN MD 
-// Dont Remove Credit From File 
 
 const { cmd } = require("../command");
 
@@ -54,8 +52,8 @@ cmd({
       return await message.reply(
         "❌ No valid group JIDs found\n" +
         "Examples:\n" +
-        ".fwd 120363411055156472@g.us,120363333939099948@g.us\n" +
-        ".fwd 120363411055156472 120363333939099948"
+        ".fwd 12036341105556472@g.us,12036333393909948@g.us\n" +
+        ".fwd 12036341055156472 12036333393999948"
       );
     }
 
