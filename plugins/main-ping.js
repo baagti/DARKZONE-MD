@@ -38,17 +38,17 @@ const reactionEmoji = emojis[Math.floor(Math.random() * emojis.length)];
 const styles = [
 `┌──「 𝗣𝗜𝗡𝗚 𝗖𝗛𝗘𝗖𝗞 」───
 │
-│ ⏱️ Response : *${responseTime.toFixed(2)} ms*
-│ 📶 Status : *Online* ${reactionEmoji}
-│ ⚙️ Mode : *DARKZONE-MD*
+│⏱️ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 : *${responseTime.toFixed(2)} ms*
+│📶 𝙎𝙩𝙖𝙩𝙪𝙨 : *Online* ${reactionEmoji}
+│⚙️ 𝙈𝙤𝙙𝙚 : *DARKZONE-MD*
 │
 └────────────────────`,
 
-`╭─〔 🚀 System Status 〕─
+`╭─〔 🚀 𝙎𝙔𝙎𝙏𝙀𝙈 𝙎𝙏𝘼𝙏𝙐𝙎 〕─
 │
-│ ⚡ Speed : *${responseTime.toFixed(2)} ms*
-│ 💡 Bot : *Active* ${reactionEmoji}
-│ 🧠 Module : *DARKZONE-MD*
+│ ⚡ 𝙎𝙥𝙚𝙚𝙙: *${responseTime.toFixed(2)}ms*
+│ 💡 𝘽𝙤𝙩: *ACTIVE* ${reactionEmoji}
+│ 🧠 𝙈𝙤𝙙𝙪𝙡𝙚: *darkzone-md*
 │
 ╰───────────────╯`,
 
@@ -62,30 +62,24 @@ const styles = [
 
 `╔════⟪ DARKZONE PING ⟫════╗
 
-🔄 Response Time : *${responseTime.toFixed(2)} ms*
-📡 Bot Status : *Live* ${reactionEmoji}
-💠 MODE : *AUTO CORE*
+🔄 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 𝙏𝙞𝙢𝙚 : *${responseTime.toFixed(2)} ms*
+📡 𝘽𝙤𝙩 𝙎𝙩𝙖𝙩𝙪𝙨 : *LIVE* ${reactionEmoji}
+💠 𝙈𝙤𝙙𝙚 : *Auto Core*
 
 ╚════════════════════╝`,
 
-`╭━━━❰ PING STATUS ❱━━━╮
+`╭━━━❰ 𝙋𝙄𝙉𝙂 𝙎𝙏𝘼𝙏𝙐𝙎 ❱━━━╮
 ┃
-┃ ⚙️ *MODE* : *DARKZONE-MD*
-┃ ⚡ SPEED : *${responseTime.toFixed(2)} ms*
-┃ 🔋 Status : *Stable* ${reactionEmoji}
+┃ ⚙️ 𝙈𝙤𝙙𝙚 : *Darkzone-MD*
+┃ ⚡ 𝙎𝙥𝙚𝙚𝙙 : *${responseTime.toFixed(2)}ms*
+┃ 🔋 𝙎𝙩𝙖𝙩𝙪𝙨 : *Stable* ${reactionEmoji}
 ┃
 ╰━━━━━━━━━━━━━━━━━━━╯`
 ];
 
-// Pick one style randomly
 const text = styles[Math.floor(Math.random() * styles.length)];
 
-
-
-
-
-
-        await conn.sendMessage(from, {
+ await conn.sendMessage(from, {
             text,
             contextInfo: {
                 mentionedJid: [sender],
