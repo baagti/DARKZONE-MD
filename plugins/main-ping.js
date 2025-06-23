@@ -32,14 +32,50 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `
-🌌 𝗚𝗔𝗟𝗔𝗫𝗬-𝗣𝗜𝗡𝗚: 𝗗𝗔𝗥𝗞𝗭𝗢𝗡𝗘-𝗠𝗗
+        const styles = [
+`┌──「 𝗣𝗜𝗡𝗚 𝗖𝗛𝗘𝗖𝗞 」───
+│
+│⏱️ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 : *${responseTime.toFixed(2)} ms*
+│📶 𝙎𝙩𝙖𝙩𝙪𝙨 : *Online* ${reactionEmoji}
+│⚙️ 𝙈𝙤𝙙𝙚 : *DARKZONE-MD*
+│
+└────────────────────`,
 
-✨ Speed Checked in *${responseTime.toFixed(2)}ms*
-🔭 Space Bot Status: ✅ Online ${reactionEmoji}
-🔋 Powered by Node & Stars
+`╭─〔 🚀 𝙎𝙔𝙎𝙏𝙀𝙈 𝙎𝙏𝘼𝙏𝙐𝙎 〕─
+│
+│ ⚡ 𝙎𝙥𝙚𝙚𝙙: *${responseTime.toFixed(2)}ms*
+│ 💡 𝘽𝙤𝙩: *ACTIVE* ${reactionEmoji}
+│ 🧠 𝙈𝙤𝙙𝙪𝙡𝙚: *darkzone-md*
+│
+╰───────────────╯`,
 
-🛰️ Stay Connected with the Universe 🌠`;
+`───────•••───────
+💠 *DARKZONE-MD* 💠
+
+⚡ *Ping:* ${responseTime.toFixed(2)} ms
+📶 *Status:* Online ${reactionEmoji}
+
+───────•••───────`,
+
+`╔════⟪ DARKZONE PING ⟫════╗
+
+🔄 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 𝙏𝙞𝙢𝙚 : *${responseTime.toFixed(2)} ms*
+📡 𝘽𝙤𝙩 𝙎𝙩𝙖𝙩𝙪𝙨 : *LIVE* ${reactionEmoji}
+💠 𝙈𝙤𝙙𝙚 : *Auto Core*
+
+╚════════════════════╝`,
+
+`╭━━━❰ 𝙋𝙄𝙉𝙂 𝙎𝙏𝘼𝙏𝙐𝙎 ❱━━━╮
+┃
+┃ ⚙️ 𝙈𝙤𝙙𝙚 : *Darkzone-MD*
+┃ ⚡ 𝙎𝙥𝙚𝙚𝙙 : *${responseTime.toFixed(2)}ms*
+┃ 🔋 𝙎𝙩𝙖𝙩𝙪𝙨 : *Stable* ${reactionEmoji}
+┃
+╰━━━━━━━━━━━━━━━━━━━╯`
+];
+
+const text = styles[Math.floor(Math.random() * styles.length)];
+
 
 
 
@@ -51,7 +87,7 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
                 forwardingScore: 999,
                 isForwarded: true,
                 forwardedNewsletterMessageInfo: {
-                    newsletterJid: '12036341674304110@newsletter',
+                    newsletterJid: '120363416743041101@newsletter',
                     newsletterName: "𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟",
                     serverMessageId: 143
                 }
