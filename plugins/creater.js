@@ -1,8 +1,8 @@
-const { cmd, commands } = require('../command');
+const { cmd } = require('../command');
 const config = require('../config');
 
 cmd({
-    pattern: "creator", // Fixed spelling
+    pattern: "creator",
     desc: "Show the real creator's name and contact.",
     category: "info",
     react: "👤",
@@ -10,9 +10,8 @@ cmd({
 },
 async (conn, mek, m, { reply }) => {
 
-    // Creator information
     const creatorName = "𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 💜";
-    const creatorNumber = "923189999659"; // Add without '@s.whatsapp.net'
+    const creatorNumber = "923306137477"; // no "+" and no "@s.whatsapp.net"
     const creatorPhoto = "https://files.catbox.moe/4wyfey.jpg";
 
     const vcard = `
@@ -23,20 +22,22 @@ TEL;type=CELL;type=VOICE;waid=${creatorNumber}:${creatorNumber}
 END:VCARD`.trim();
 
     try {
+        // Send contact card
         await conn.sendMessage(m.chat, {
             contacts: [{
                 displayName: creatorName,
-                vcard
+                vcard: vcard
             }]
         }, { quoted: mek });
 
+        // Send profile image with name and number
         await conn.sendMessage(m.chat, {
             image: { url: creatorPhoto },
-            caption: `👤 *Creator Name:* ${creatorName}\n📞 *Number:* wa.me/${creatorNumber}`
+            caption: `👤 *Creator Name:* ${creatorName}\n📞 *Number:* https://wa.me/${creatorNumber}`
         }, { quoted: mek });
 
-    } catch (err) {
-        console.error(err);
-        reply("❌ Failed to send creator info.");
+    } catch (error) {
+        console.error("Error in creator command:", error);
+        reply("❌ Could not send creator info.");
     }
 });
