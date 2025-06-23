@@ -33,48 +33,30 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const responseTime = (end - start) / 1000;
 
         const styles = [
-`┌──「 𝗣𝗜𝗡𝗚 𝗖𝗛𝗘𝗖𝗞 」───
-│
-│⏱️ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 : *${responseTime.toFixed(2)} ms*
-│📶 𝙎𝙩𝙖𝙩𝙪𝙨 : *Online* ${reactionEmoji}
-│⚙️ 𝙈𝙤𝙙𝙚 : *DARKZONE-MD*
-│
-└────────────────────`,
-
-`╭─〔 🚀 𝙎𝙔𝙎𝙏𝙀𝙈 𝙎𝙏𝘼𝙏𝙐𝙎 〕─
-│
-│ ⚡ 𝙎𝙥𝙚𝙚𝙙: *${responseTime.toFixed(2)}ms*
-│ 💡 𝘽𝙤𝙩: *ACTIVE* ${reactionEmoji}
-│ 🧠 𝙈𝙤𝙙𝙪𝙡𝙚: *darkzone-md*
-│
-╰───────────────╯`,
-
-`───────•••───────
-💠 *DARKZONE-MD* 💠
-
-⚡ *Ping:* ${responseTime.toFixed(2)} ms
-📶 *Status:* Online ${reactionEmoji}
-
-───────•••───────`,
-
-`╔════⟪ DARKZONE PING ⟫════╗
-
-🔄 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 𝙏𝙞𝙢𝙚 : *${responseTime.toFixed(2)} ms*
-📡 𝘽𝙤𝙩 𝙎𝙩𝙖𝙩𝙪𝙨 : *LIVE* ${reactionEmoji}
-💠 𝙈𝙤𝙙𝙚 : *Auto Core*
-
-╚════════════════════╝`,
-
-`╭━━━❰ 𝙋𝙄𝙉𝙂 𝙎𝙏𝘼𝙏𝙐𝙎 ❱━━━╮
-┃
-┃ ⚙️ 𝙈𝙤𝙙𝙚 : *Darkzone-MD*
-┃ ⚡ 𝙎𝙥𝙚𝙚𝙙 : *${responseTime.toFixed(2)}ms*
-┃ 🔋 𝙎𝙩𝙖𝙩𝙪𝙨 : *Stable* ${reactionEmoji}
-┃
-╰━━━━━━━━━━━━━━━━━━━╯`
+  `darkzone speed is {ping} ms {emoji}`,
+  `bot speed test result: {ping} ms {emoji}`,
+  `darkzone-md response time → {ping} ms {emoji}`,
+  `ping checked, system alive 🚀 time: {ping} ms {emoji}`,
+  `response received in {ping} milliseconds {emoji}`
 ];
 
-const text = styles[Math.floor(Math.random() * styles.length)];
+// Emoji list to randomize
+const styleEmojis = ['⚡', '🔥', '🚀', '🌪️', '🎯', '🎉', '✨', '💥', '🌀', '🌈', '🛡️', '📡'];
+
+// Function to capitalize every word
+function capitalizeWords(str) {
+  return str.replace(/\b\w+/g, w => w.charAt(0).toUpperCase() + w.slice(1));
+}
+
+const selectedStyle = styles[Math.floor(Math.random() * styles.length)];
+const selectedEmoji = styleEmojis[Math.floor(Math.random() * styleEmojis.length)];
+
+const text = capitalizeWords(
+  selectedStyle
+    .replace('{ping}', `${responseTime.toFixed(2)}`)
+    .replace('{emoji}', selectedEmoji)
+);
+
 
 
 
