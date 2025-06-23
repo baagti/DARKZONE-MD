@@ -32,30 +32,53 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const styles = [
-  `darkzone speed is {ping} ms {emoji}`,
-  `bot speed test result: {ping} ms {emoji}`,
-  `darkzone-md response time → {ping} ms {emoji}`,
-  `ping checked, system alive 🚀 time: {ping} ms {emoji}`,
-  `response received in {ping} milliseconds {emoji}`
+        const emojis = ['⚡', '🔥', '🚀', '🌪️', '🎯', '🎉', '✨', '💥', '🌀', '🌈', '🛡️', '📡'];
+const reactionEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+
+const styles = [
+`┌──「 𝗣𝗜𝗡𝗚 𝗖𝗛𝗘𝗖𝗞 」───
+│
+│ ⏱️ Response : *${responseTime.toFixed(2)} ms*
+│ 📶 Status : *Online* ${reactionEmoji}
+│ ⚙️ Mode : *DARKZONE-MD*
+│
+└────────────────────`,
+
+`╭─〔 🚀 System Status 〕─
+│
+│ ⚡ Speed : *${responseTime.toFixed(2)} ms*
+│ 💡 Bot : *Active* ${reactionEmoji}
+│ 🧠 Module : *DARKZONE-MD*
+│
+╰───────────────╯`,
+
+`───────•••───────
+💠 *DARKZONE-MD* 💠
+
+⚡ *Ping:* ${responseTime.toFixed(2)} ms
+📶 *Status:* Online ${reactionEmoji}
+
+───────•••───────`,
+
+`╔════⟪ DARKZONE PING ⟫════╗
+
+🔄 Response Time : *${responseTime.toFixed(2)} ms*
+📡 Bot Status : *Live* ${reactionEmoji}
+💠 MODE : *AUTO CORE*
+
+╚════════════════════╝`,
+
+`╭━━━❰ PING STATUS ❱━━━╮
+┃
+┃ ⚙️ *MODE* : *DARKZONE-MD*
+┃ ⚡ SPEED : *${responseTime.toFixed(2)} ms*
+┃ 🔋 Status : *Stable* ${reactionEmoji}
+┃
+╰━━━━━━━━━━━━━━━━━━━╯`
 ];
 
-// Emoji list to randomize
-const styleEmojis = ['⚡', '🔥', '🚀', '🌪️', '🎯', '🎉', '✨', '💥', '🌀', '🌈', '🛡️', '📡'];
-
-// Function to capitalize every word
-function capitalizeWords(str) {
-  return str.replace(/\b\w+/g, w => w.charAt(0).toUpperCase() + w.slice(1));
-}
-
-const selectedStyle = styles[Math.floor(Math.random() * styles.length)];
-const selectedEmoji = styleEmojis[Math.floor(Math.random() * styleEmojis.length)];
-
-const text = capitalizeWords(
-  selectedStyle
-    .replace('{ping}', `${responseTime.toFixed(2)}`)
-    .replace('{emoji}', selectedEmoji)
-);
+// Pick one style randomly
+const text = styles[Math.floor(Math.random() * styles.length)];
 
 
 
