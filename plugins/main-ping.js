@@ -32,11 +32,9 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `
-┌────「 SPEED TEST 」────┐
-│ ⚙️ Bot: DARKZONE-MD
-│ 🕐 Time: ${responseTime.toFixed(2)} ms ${reactionEmoji}
-└──────────────────────┘`;
+        const text = `💥 *DARKZONE-MD IS ALIVE!*
+🏓 Pong in: *${responseTime.toFixed(2)}ms* ${reactionEmoji}`;
+
 
 
 
