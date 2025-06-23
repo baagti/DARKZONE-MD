@@ -32,54 +32,9 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const emojis = ['⚡', '🔥', '🚀', '🌪️', '🎯', '🎉', '✨', '💥', '🌀', '🌈', '🛡️', '📡'];
-const reactionEmoji = emojis[Math.floor(Math.random() * emojis.length)];
+        const text = `> *DARKZONE-MD SPEED: ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
 
-const styles = [
-`┌──「 𝗣𝗜𝗡𝗚 𝗖𝗛𝗘𝗖𝗞 」───
-│
-│⏱️ 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 : *${responseTime.toFixed(2)} ms*
-│📶 𝙎𝙩𝙖𝙩𝙪𝙨 : *Online* ${reactionEmoji}
-│⚙️ 𝙈𝙤𝙙𝙚 : *DARKZONE-MD*
-│
-└────────────────────`,
-
-`╭─〔 🚀 𝙎𝙔𝙎𝙏𝙀𝙈 𝙎𝙏𝘼𝙏𝙐𝙎 〕─
-│
-│ ⚡ 𝙎𝙥𝙚𝙚𝙙: *${responseTime.toFixed(2)}ms*
-│ 💡 𝘽𝙤𝙩: *ACTIVE* ${reactionEmoji}
-│ 🧠 𝙈𝙤𝙙𝙪𝙡𝙚: *darkzone-md*
-│
-╰───────────────╯`,
-
-`───────•••───────
-💠 *DARKZONE-MD* 💠
-
-⚡ *Ping:* ${responseTime.toFixed(2)} ms
-📶 *Status:* Online ${reactionEmoji}
-
-───────•••───────`,
-
-`╔════⟪ DARKZONE PING ⟫════╗
-
-🔄 𝙍𝙚𝙨𝙥𝙤𝙣𝙨𝙚 𝙏𝙞𝙢𝙚 : *${responseTime.toFixed(2)} ms*
-📡 𝘽𝙤𝙩 𝙎𝙩𝙖𝙩𝙪𝙨 : *LIVE* ${reactionEmoji}
-💠 𝙈𝙤𝙙𝙚 : *Auto Core*
-
-╚════════════════════╝`,
-
-`╭━━━❰ 𝙋𝙄𝙉𝙂 𝙎𝙏𝘼𝙏𝙐𝙎 ❱━━━╮
-┃
-┃ ⚙️ 𝙈𝙤𝙙𝙚 : *Darkzone-MD*
-┃ ⚡ 𝙎𝙥𝙚𝙚𝙙 : *${responseTime.toFixed(2)}ms*
-┃ 🔋 𝙎𝙩𝙖𝙩𝙪𝙨 : *Stable* ${reactionEmoji}
-┃
-╰━━━━━━━━━━━━━━━━━━━╯`
-];
-
-const text = styles[Math.floor(Math.random() * styles.length)];
-
- await conn.sendMessage(from, {
+        await conn.sendMessage(from, {
             text,
             contextInfo: {
                 mentionedJid: [sender],
