@@ -32,7 +32,45 @@ async (conn, mek, m, { from, quoted, sender, reply }) => {
         const end = new Date().getTime();
         const responseTime = (end - start) / 1000;
 
-        const text = `> *DARKZONE-MD SPEED: ${responseTime.toFixed(2)}ms ${reactionEmoji}*`;
+        const text = [
+  `┌──「 Darkzone-Md Ping Report 」───
+│
+│⏱️ Response Time : *${responseTime.toFixed(2)} ms*
+│📶 Status : *Online* ${reactionEmoji}
+│⚙️ Mode : *Darkzone-MD*
+│
+└────────────────────`,
+
+  `╭─〔 System Status 〕─
+│
+│ Speed: *${responseTime.toFixed(2)}ms*
+│ Bot: *Active* ${reactionEmoji}
+│ Module: *Darkzone-MD*
+╰───────────────╯`,
+
+  `─────── Ping Info ───────
+💠 *Darkzone-MD*
+
+⚡ *Ping:* ${responseTime.toFixed(2)} ms  
+📶 *Status:* Online ${reactionEmoji}
+
+────────────────────`,
+
+  `╔════⟪ Ping Status ⟫════╗
+🔄 Response : *${responseTime.toFixed(2)} ms*
+📡 Bot : *Live* ${reactionEmoji}
+💠 Mode : *Auto Core*
+╚════════════════════╝`,
+
+  `╭━━━❰ Ping Panel ❱━━━╮
+┃
+┃ Mode : *Darkzone-MD*
+┃ Speed : *${responseTime.toFixed(2)}ms*
+┃ Status : *Stable* ${reactionEmoji}
+╰━━━━━━━━━━━━━━━━━━━╯`
+];
+
+const text = pingDesigns[Math.floor(Math.random() * pingDesigns.length)];
 
         await conn.sendMessage(from, {
             text,
