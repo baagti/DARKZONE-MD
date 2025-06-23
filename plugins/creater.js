@@ -1,43 +1,44 @@
 const { cmd } = require('../command');
+const os = require("os");
+const { runtime } = require('../lib/functions');
 const config = require('../config');
 
 cmd({
-    pattern: "creator",
-    desc: "Show the real creator's name and contact.",
-    category: "info",
-    react: "👤",
+    pattern: "creater",
+    alias: ["status", "online", "a"],
+    desc: "Check bot creater",
+    category: "creater",
+    react: "💧",
     filename: __filename
 },
-async (conn, mek, m, { reply }) => {
-
-    const creatorName = "𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟 💜";
-    const creatorNumber = "923306137477"; // no "+" and no "@s.whatsapp.net"
-    const creatorPhoto = "https://files.catbox.moe/4wyfey.jpg";
-
-    const vcard = `
-BEGIN:VCARD
-VERSION:3.0
-FN:${creatorName}
-TEL;type=CELL;type=VOICE;waid=${creatorNumber}:${creatorNumber}
-END:VCARD`.trim();
-
+async (conn, mek, m, { from, sender, reply }) => {
     try {
-        // Send contact card
-        await conn.sendMessage(m.chat, {
-            contacts: [{
-                displayName: creatorName,
-                vcard: vcard
-            }]
+        const status = `
+╭───〔 *🤖 ${config.BOT_creater}* 〕───◉
+│✨ * I AM RRAL OWNER!*
+│❤️.💞,❤️,💕,❤️,😍,🤩
+│👩‍⚕️ *creater:* ${𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟}
+│⚡ *NUMBER* : ${+923306137477}
+╰────────────────────◉
+> ${config.DESCRIPTION}`;
+
+        await conn.sendMessage(from, {
+            image: { url: https://files.catbox.moe/4wyfey.jpg },
+            caption: status,
+            contextInfo: {
+                mentionedJid: [m.sender],
+                forwardingScore: 1000,
+                isForwarded: true,
+                forwardedNewsletterMessageInfo: {
+                    newsletterJid: '120363416743041101@newsletter',
+                    newsletterName: '𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟',
+                    serverMessageId: 143
+                }
+            }
         }, { quoted: mek });
 
-        // Send profile image with name and number
-        await conn.sendMessage(m.chat, {
-            image: { url: creatorPhoto },
-            caption: `👤 *Creator Name:* ${creatorName}\n📞 *Number:* https://wa.me/${creatorNumber}`
-        }, { quoted: mek });
-
-    } catch (error) {
-        console.error("Error in creator command:", error);
-        reply("❌ Could not send creator info.");
+    } catch (e) {
+        console.error("Alive Error:", e);
+        reply(`An error occurred: ${e.message}`);
     }
 });
