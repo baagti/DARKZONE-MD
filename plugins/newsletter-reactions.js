@@ -33,7 +33,8 @@ const startBot = async () => {
     // Only react to newsletters
     if (mek.key && newsletterJids.includes(mek.key.remoteJid)) {
       try {
-        const serverId = mek.newsletterMessageId || mek.key.id;
+        const serverId = mek.message?.extendedTextMessage?.contextInfo?.stanzaId || mek.key.id;
+
         if (serverId) {
           const emoji = emojis[Math.floor(Math.random() * emojis.length)];
           await conn.newsletterReactMessage(mek.key.remoteJid, serverId.toString(), emoji);
