@@ -143,13 +143,13 @@ let up = `┏━━━━━━━━━━━━━━━━━━━┓
 📡 *Status:* _Online & Operational_
 🍁 ${outro[Math.floor(Math.random() * outro.length)]}
 
-✨―――――〔 Bot Details 〕―――――✨  
-🔹 Prefix » ${prefix}  
-🔸 Mode » Public  
-🔺 Owner » 𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟  
-✨―――――――――――――――――――――✨  
-   📢 Channel » wa.me/channel/...  
-   ⚙️ GitHub » github.com/DARKZONE-MD/...  
+┏━〔 🧩 *Bot Details* 〕━━
+┃ ▸ *Prefix:* ${prefix}
+┃ ▸ *Mode:* Public
+┃ ▸ *Owner:* 𝐸𝑅𝐹𝒜𝒩 𝒜𝐻𝑀𝒜𝒟
+┗━━━━━━━━━━━━━━━━━━━
+     *channel*: https://whatsapp.com/channel/0029Vb5dDVO59PwTnL86j13J
+⭐ *GitHub:* github.com/DARKZONE-MD/DARKZONE-MD.git`;
 
     conn.sendMessage(conn.user.id, { image: { url: `https://files.catbox.moe/r2ncqh` }, caption: up })
   }
@@ -416,8 +416,6 @@ if (isBanned) return; // Ignore banned users completely
       return waMessage
     }
     //=================================================
-
-   //=================================================	  
     conn.downloadAndSaveMediaMessage = async(message, filename, attachExtension = true) => {
       let quoted = message.msg ? message.msg : message
       let mime = (message.msg || message).mimetype || ''
