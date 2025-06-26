@@ -46,7 +46,7 @@ async (conn, mek, m, { from, sender, reply }) => {
 
 ${config.DESCRIPTION || 'A powerful WhatsApp bot'}
 
-✨ *Thank you for using ${config.BOT_NAME}!* ✨`;
+✨ *Thank you for using  ${config.BOT_NAME}!* ✨`;
 
         // Simple message options without the problematic buffer call
         const messageOptions = {
@@ -57,6 +57,7 @@ ${config.DESCRIPTION || 'A powerful WhatsApp bot'}
             contextInfo: {
                 mentionedJid: [sender],
                 forwardingScore: 999,
+                newsletterJid: '120363416743041101@newsletter',
                 isForwarded: true
             },
             quoted: mek
