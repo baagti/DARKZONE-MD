@@ -2,6 +2,7 @@ const { cmd } = require('../command');
 const os = require("os");
 const { runtime } = require('../lib/functions');
 const config = require('../config');
+const axios = require('axios');
 
 cmd({
     pattern: "alive",
@@ -18,51 +19,45 @@ async (conn, mek, m, { from, sender, reply }) => {
         const totalMemory = (os.totalmem() / 1024 / 1024).toFixed(2);
         const freeMemory = (os.freemem() / 1024 / 1024).toFixed(2);
         const uptime = runtime(process.uptime());
-        const cpuModel = os.cpus()[0].model;
+        const cpuModel = os.cpus()[0].model.split('@')[0];
         const platform = `${os.platform()} ${os.arch()}`;
         
         // Beautiful ASCII Art Design
         const status = `
-╔═══════════════════════
-║  🚀 *${config.BOT_NAME} STATUS* 🚀
-╟───────────────────────
-║  🌟 *Bot Status:* Active & Online!
-║  
-║  👑 *Owner:* ${config.OWNER_NAME}
-║  📌 *Prefix:* [ ${config.PREFIX} ]
-║  🛠️ *Version:* 4.0.0
-║  🔧 *Mode:* ${config.MODE}
-║  
-║  🖥️ *System Info:*
-║  • CPU: ${cpuModel}
-║  • RAM: ${memoryUsage}MB / ${totalMemory}MB
-║  • Free: ${freeMemory}MB
-║  • Platform: ${platform}
-║  • Uptime: ${uptime}
-║  
-║  📍 *Description:*
-║  ${config.DESCRIPTION || 'A powerful WhatsApp bot'}
-╚═══════════════════════
-✨ *Powered by ${config.BOT_NAME}* ✨`;
+┏━━━━━━━━━━━━━━━━━━━━┓
+┃  🌟 *${config.BOT_NAME}* 🌟  ┃
+┗━━━━━━━━━━━━━━━━━━━━┛
 
-        // Message Options with Stylish Formatting
+╭───────────────◇
+│🎯 *Status:* Active & Running!
+│👑 *Owner:* ${config.OWNER_NAME}
+│⚡ *Version:* 4.0.0
+│🔮 *Prefix:* [ ${config.PREFIX} ]
+╰───────────────◇
+
+╭───────────────◇
+│🖥️ *System Info:*
+│• CPU: ${cpuModel}
+│• RAM: ${memoryUsage}/${totalMemory} MB
+│• Free: ${freeMemory} MB
+│• Platform: ${platform}
+│⏱️ *Uptime:* ${uptime}
+╰───────────────◇
+
+${config.DESCRIPTION || 'A powerful WhatsApp bot'}
+
+✨ *Thank you for using ${config.BOT_NAME}!* ✨`;
+
+        // Simple message options without the problematic buffer call
         const messageOptions = {
             image: { 
-                url: config.MENU_IMAGE_URL || 'https://i.imgur.com/8K7VhJt.jpg' // default aesthetic image
+                url: config.MENU_IMAGE_URL || 'https://i.imgur.com/8K7VhJt.jpg'
             },
             caption: status,
             contextInfo: {
                 mentionedJid: [sender],
                 forwardingScore: 999,
-                isForwarded: true,
-                externalAdReply: {
-                    title: `${config.BOT_NAME} Status`,
-                    body: "Click here to interact with me!",
-                    thumbnail: await (await fetch(config.MENU_IMAGE_URL)).buffer(),
-                    mediaType: 1,
-                    mediaUrl: '',
-                    sourceUrl: config.WEBSITE || 'https://github.com/your-repo'
-                }
+                isForwarded: true
             },
             quoted: mek
         };
@@ -70,7 +65,18 @@ async (conn, mek, m, { from, sender, reply }) => {
         await conn.sendMessage(from, messageOptions);
 
     } catch (e) {
-        console.error("✨ Alive Command Error:", e);
-        await reply(`❌ Oops! Something went wrong:\n${e.message}\n\nPlease try again later.`);
+        console.error("Alive Command Error:", e);
+        // Simple text reply if image fails
+        const errorStatus = `
+*${config.BOT_NAME} Status*
+
+Status: Active ✅
+Owner: ${config.OWNER_NAME}
+Prefix: ${config.PREFIX}
+Uptime: ${runtime(process.uptime())}
+
+(Image not available)`;
+        
+        await reply(errorStatus);
     }
 });
